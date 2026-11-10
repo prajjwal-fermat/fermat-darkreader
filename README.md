@@ -1,8 +1,9 @@
 # Fermat Dark Reader
 
 A personal neutral-charcoal theme for the Fermat dashboard.
-Dark Reader Dynamic mode handles the full site.
-The small override file improves shared surfaces, controls, chart labels, and Fermat 2.0 pages.
+
+<img width="1512" height="849" alt="image" src="https://github.com/user-attachments/assets/78737c13-d48c-4c32-9946-3157664dbeae" />
+
 
 ## Install
 
