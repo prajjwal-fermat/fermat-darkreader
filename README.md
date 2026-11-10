@@ -35,9 +35,12 @@ The overrides cover:
 
 The overrides keep the existing fonts and layout.
 They do not assign colors to chart series or status indicators.
-It adds no blanket inversion to images, video, canvas, or embedded previews.
-Embedded documents and replay pixels retain the extension's normal handling.
-The surrounding dashboard uses this theme.
+Only the dark Fermat wordmark needs an explicit inversion.
+Its selector uses the logo's SVG viewBox, not a generated class.
+Images, video, canvas, and embedded previews receive no blanket inversion.
+Sandboxed artifact documents can retain their original light design.
+Their cards, headers, and controls still use the dark theme.
+Replay pixels retain their original rendering.
 
 The custom CSS applies only while Dark Reader reports dark mode.
 Turning Dark Reader off removes the fix.
@@ -65,3 +68,16 @@ Dark Reader then resumes its default styling for Fermat.
 No application deployment or dashboard code change is required.
 
 Reference: [Dark Reader site fixes](https://github.com/darkreader/darkreader/blob/main/CONTRIBUTING.md#how-to-use-the-dev-tools).
+
+## Visual checks
+
+Checked in Chrome with the extension enabled:
+
+- Collapsed and expanded sidebar.
+- App home and Agent Workspaces.
+- Product-funnel lists and legacy analytics cards, plots, and tables.
+- Fermat 2.0 dashboard charts, legends, axes, and controls.
+- Artifact cards, document chrome, and the sharing popover.
+
+The token overrides also cover surfaces that use the same components.
+This check does not claim that every route, feature flag, or customer document has identical rendering.
