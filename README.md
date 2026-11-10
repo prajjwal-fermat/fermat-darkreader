@@ -1,6 +1,6 @@
 # Fermat Dark Reader
 
-A personal forest-charcoal theme for the Fermat dashboard.
+A personal neutral-charcoal theme for the Fermat dashboard.
 Dark Reader Dynamic mode handles the full site.
 The small override file improves shared surfaces, controls, chart labels, and Fermat 2.0 pages.
 
@@ -17,9 +17,29 @@ The small override file improves shared surfaces, controls, chart labels, and Fe
 9. Select Apply.
 
 The file includes production and Cloudflare preview domains.
-The preview domain also matches its branch subdomains.
+The wildcard entry matches Cloudflare branch subdomains.
 Other websites retain their existing Dark Reader settings.
 Dark Reader's Import Settings button expects a different JSON format.
+
+### Preserve published appearance
+
+Templates and storefront previews must retain their original colors.
+Dark Reader cannot reliably exclude a section of a page from Dynamic mode.
+The safe fallback disables Dark Reader for the complete editor page, including its controls.
+This also protects template galleries, the module library, and funnel review previews.
+
+1. Open Dark Reader's Site list.
+2. Select Not invert listed.
+3. Add each line from [preview-exclusions.txt](preview-exclusions.txt) as a separate entry.
+4. Keep any existing exclusions.
+5. Reload an open editor after adding an exclusion.
+
+These exclusions are separate extension settings.
+Importing `dashboard.config` alone does not install them.
+The list excludes editor routes without excluding analytics or dashboard routes.
+The complete template editor stays light; this theme does not promise a dark editor around an unchanged preview.
+
+Reference: [Dark Reader's section-exclusion limitation](https://github.com/darkreader/darkreader/issues/4144).
 
 ## Coverage
 
@@ -38,9 +58,10 @@ They do not assign colors to chart series or status indicators.
 Only the dark Fermat wordmark needs an explicit inversion.
 Its selector uses the logo's SVG viewBox, not a generated class.
 Images, video, canvas, and embedded previews receive no blanket inversion.
-Sandboxed artifact documents can retain their original light design.
+Sandboxed artifact documents retain their original design in the checked previews.
 Their cards, headers, and controls still use the dark theme.
-Replay pixels retain their original rendering.
+The custom CSS adds no filters to replay pixels.
+Replay-player rendering still needs a separate visual check.
 
 The custom CSS applies only while Dark Reader reports dark mode.
 Turning Dark Reader off removes the fix.
@@ -49,7 +70,7 @@ Turning Dark Reader off removes the fix.
 
 The first rule defines the palette.
 Primary and muted text pass WCAG AA against all three theme backgrounds.
-The lowest measured ratio is 7.70:1.
+The lowest measured ratio is 7.32:1.
 
 Dark Reader generates the `--darkreader-bg--`, `--darkreader-text--`, and `--darkreader-border--` variables.
 These overrides keep Chakra and the styled islands on the same palette.
@@ -78,6 +99,15 @@ Checked in Chrome with the extension enabled:
 - Product-funnel lists and legacy analytics cards, plots, and tables.
 - Fermat 2.0 dashboard charts, legends, axes, and controls.
 - Artifact cards, document chrome, and the sharing popover.
+- A product-funnel template editor with Dark Reader excluded, including the original storefront colors.
+- Existing investigation messages, artifact cards, and the composer.
+- Workspace automation cards and the empty action-items page.
+- Brand Settings details and media-library controls.
+- Commerce Graph overview cards.
+
+The remaining editor exclusions follow the application's route definitions.
+They have not each received a visual check.
+The media thumbnails, replay players, populated action items, and preview deployments remain unverified.
 
 The token overrides also cover surfaces that use the same components.
 This check does not claim that every route, feature flag, or customer document has identical rendering.
