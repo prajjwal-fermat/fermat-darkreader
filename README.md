@@ -8,13 +8,24 @@ The small override file improves shared surfaces, controls, chart labels, and Fe
 
 1. Install the official [Dark Reader extension](https://darkreader.org/).
 2. Open the Fermat dashboard.
-3. Select Dynamic mode in Dark Reader.
-4. Open More, All settings, Advanced, then Dev tools.
+3. Select Dynamic mode in Dark Reader. (Inside the More tab)
+<img width="1512" height="870" alt="image" src="https://github.com/user-attachments/assets/b11ee57a-9b67-438a-badf-aae4ddcff252" />
+
+4. Inside More go to All settings, Advanced, then Dev tools.
+
 5. Select Dynamic Theme Editor, then Per Site Editor.
+<img width="794" height="600" alt="image" src="https://github.com/user-attachments/assets/ba50e2d4-186a-46a5-968c-d30a8866f468" />
+
 6. Search for `app.fermatcommerce.com`.
 7. If no entry exists, select Create new fix.
+<img width="794" height="600" alt="image" src="https://github.com/user-attachments/assets/082564d5-53df-44a8-b6aa-8e138de41311" />
+
 8. Replace that entry with the complete contents of [dashboard.config](dashboard.config).
 9. Select Apply.
+
+Now you will have dark theme for Fermat dashboard.
+<img width="1512" height="849" alt="image" src="https://github.com/user-attachments/assets/56a91b82-b53e-44a6-94ca-6a0a8e994da2" />
+
 
 The file includes production and Cloudflare preview domains.
 The wildcard entry matches Cloudflare branch subdomains.
